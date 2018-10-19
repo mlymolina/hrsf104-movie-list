@@ -48,13 +48,11 @@ const movielist = [];
 const url = "http://127.0.0.1:8080/api/movies";
 
 fetch(url)
-.then(function(response) {
-  console.log(response.body);
-  // ReactDOM.render(<MovieList API_KEY={API_KEY} movies={response.json()} />, 
-  //   document.querySelector("#app")
-  // );
-  return response.json();
-
+  .then(function(response) {
+    response.json().then(json => {
+      console.log(json.movies);
+      ReactDOM.render(<MovieList API_KEY={API_KEY} movies={json.movies} />, 
+        document.querySelector("#app")
+      );
+    })
   });
-
-

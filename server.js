@@ -31,7 +31,7 @@ app.get('/api/movies', (req, res, next) => {
 	// request(url, function(error, response, body) {
   //       res.json(body)
 	// });
-	res.send(JSON.stringify(movies));
+	res.send(JSON.stringify({movies}));
 });
 
 app.listen(port, () => {
