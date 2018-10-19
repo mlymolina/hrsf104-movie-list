@@ -44,7 +44,17 @@ const movies = [
     overview: "None",
     watched: false},
 ]
+const movielist = [];
+const url = "http://127.0.0.1:8080/api/movies";
 
-ReactDOM.render(<MovieList API_KEY={API_KEY} movies={movies} />, 
-  document.querySelector("#app")
-);
+fetch(url)
+.then(function(response) {
+  console.log(response.body);
+  // ReactDOM.render(<MovieList API_KEY={API_KEY} movies={response.json()} />, 
+  //   document.querySelector("#app")
+  // );
+  return response.json();
+
+  });
+
+
